@@ -160,6 +160,7 @@ survation_summary <- survation |>
 survation_summary
 ```
 Looking at the output of this table, we can confirm that the calculated percentages perfectly match the original chart (e.g., Rail is 94% Public sector, 3% Private, 3% Don't know).
+
 ## Question 5
 
 Create an improved version of the visualization. Your improved visualization:
@@ -264,6 +265,7 @@ datasaurus_dozen |>
   print(n = 13)
 ```
 When looking at the summary statistics, they are virtually identical across all 13 groups. Every dataset has a mean x of ~54.26, a mean y of ~47.8, matching standard deviations, and a similiar correlation coefficient of roughly -0.06. Based solely on these numbers, one would assume these 13 datasets look exactly the same.
+
 ## Question 7
 
 Create a scatterplot of `y` versus `x` and color and facet it by `dataset`. Then, in 1-2 sentences, how these plots compare across groups (datasets). How does your response in this question compare to your response to the previous question and what does this say about using visualizations and summary statistics when getting to know a dataset?

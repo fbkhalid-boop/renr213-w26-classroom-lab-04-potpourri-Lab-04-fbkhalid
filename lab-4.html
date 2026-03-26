@@ -243,7 +243,10 @@ Tip
 12 Water      Public sector   1746      94</code></pre>
 </div>
 </div>
-<p>Looking at the output of this table, we can confirm that the calculated percentages perfectly match the original chart (e.g., Rail is 94% Public sector, 3% Private, 3% Don’t know). ## Question 5</p>
+<p>Looking at the output of this table, we can confirm that the calculated percentages perfectly match the original chart (e.g., Rail is 94% Public sector, 3% Private, 3% Don’t know).</p>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
 <p>Create an improved version of the visualization. Your improved visualization:</p>
 <ul>
 <li><p>should also be a stacked bar chart with services on the y-axis, presented in the same order as the original plot, and services to create the segments of the plot, and presented in the same order as the original plot</p></li>
@@ -402,7 +405,10 @@ Tip
 13 x_shape      54.3   47.8  16.8  26.9 -0.0656</code></pre>
 </div>
 </div>
-<p>When looking at the summary statistics, they are virtually identical across all 13 groups. Every dataset has a mean x of ~54.26, a mean y of ~47.8, matching standard deviations, and a similiar correlation coefficient of roughly -0.06. Based solely on these numbers, one would assume these 13 datasets look exactly the same. ## Question 7</p>
+<p>When looking at the summary statistics, they are virtually identical across all 13 groups. Every dataset has a mean x of ~54.26, a mean y of ~47.8, matching standard deviations, and a similiar correlation coefficient of roughly -0.06. Based solely on these numbers, one would assume these 13 datasets look exactly the same.</p>
+</section>
+<section id="question-7" class="level2">
+<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
 <p>Create a scatterplot of <code>y</code> versus <code>x</code> and color and facet it by <code>dataset</code>. Then, in 1-2 sentences, how these plots compare across groups (datasets). How does your response in this question compare to your response to the previous question and what does this say about using visualizations and summary statistics when getting to know a dataset?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus_dozen, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> dataset)) <span class="sc">+</span></span>
