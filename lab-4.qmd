@@ -110,7 +110,8 @@ b.  You have the following code chunk, but look carefully, it's not exactly the 
 
 
 b.
-error: When set to false (the default), rendering the document will completely fail and halt if there is an error in the R code. When set to true, Quarto will render the document anyway and print the actual R error message directly into the PDF/HTML. This is highly useful for showing exactly what went wrong for debugging or teaching purposes.
+error: When set to false (the default), rendering the document will completely fail and halt if there is an error in the R code. When set to true, Quarto will render the document anyway and print the actual R error message directly into the PDF/HTML. This is  useful for showing exactly what went wrong for debugging
+
 ::: callout-tip
 Reading [the documentation](https://quarto.org/docs/reference/formats/pdf.html#execution) might also be hepful.
 :::
