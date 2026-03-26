@@ -173,12 +173,14 @@ Tip
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Add <code>fig-width</code> and <code>fig-asp</code> as code chunk options. Try setting <code>fig-width</code> to values between 1 and 10. Try setting <code>fig-asp</code> to values between 0.1 and 1. Re-render the document after each value and observe its effect. Ultimately, choose values that make the plot look visually pleasing in the rendered document. Based on the behavior you observe, describe what each chunk option does.</p></li>
+<li><p>fig-width: Changes the width of the generated plot in the rendered document (measured in inches). fig-asp: Changes the aspect ratio of the plot (height divided by width). A common aesthetically pleasing value is 0.618 (the Golden Ratio).</p></li>
 <li><p>You have the following code chunk, but look carefully, it’s not exactly the same!</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Add <code>error</code> as a code chunk option and set it to <code>false</code> and then set it to <code>true</code>. After each value, render your document and observe its effect. Ultimately, choose the value that allows you to render your document without altering the code. Based on the behavior you observe, describe what this code chunk option does.</p></li>
+<li><p>error: When set to false (the default), rendering the document will completely fail and halt if there is an error in the R code. When set to true, Quarto will render the document anyway and print the actual R error message directly into the PDF/HTML. This is highly useful for showing exactly what went wrong for debugging or teaching purposes.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
