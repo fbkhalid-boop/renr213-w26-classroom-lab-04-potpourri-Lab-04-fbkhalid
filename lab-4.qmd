@@ -58,6 +58,7 @@ Chunk 4 is valid and follows proper formatting.
 b.  Which of the chunk label options above is the best option? Explain your reasoning in 1-2 sentences.
 
 Chunk label 4 (label-with-dashes) is the best option. It is concise, informative, and uses dashes instead of spaces, which follows standard tidyverse/R coding best practices for naming conventions.
+
 ## Question 2
 
 You have the following code chunk:
@@ -74,6 +75,10 @@ Add the following code chunk options, one at a time, and set each to `false` and
 -   `echo`
 -   `warning`
 -   `eval`
+
+echo: When set to false, it hides the actual R code from the rendered final PDF/HTML document, but still runs it and shows the output (the plot). When set to true, the code is visible.
+warning: When set to false, it suppresses warning messages from appearing in the rendered document (such as ggplot warning us about removed NA values).
+eval: When set to false, Quarto will NOT execute the code block at all (no plot will be generated). When set to true, the code runs normally. For this specific chunk, the best settings are usually echo: true, warning: false, and eval: true.
 
 ## Question 3
 

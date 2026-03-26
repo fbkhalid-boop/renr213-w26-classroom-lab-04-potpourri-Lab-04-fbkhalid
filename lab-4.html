@@ -147,7 +147,10 @@ Tip
 <ol start="2" type="a">
 <li>Which of the chunk label options above is the best option? Explain your reasoning in 1-2 sentences.</li>
 </ol>
-<p>Chunk label 4 (label-with-dashes) is the best option. It is concise, informative, and uses dashes instead of spaces, which follows standard tidyverse/R coding best practices for naming conventions. ## Question 2</p>
+<p>Chunk label 4 (label-with-dashes) is the best option. It is concise, informative, and uses dashes instead of spaces, which follows standard tidyverse/R coding best practices for naming conventions.</p>
+</section>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
 <p>You have the following code chunk:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span> </span>
@@ -159,6 +162,7 @@ Tip
 <li><code>warning</code></li>
 <li><code>eval</code></li>
 </ul>
+<p>echo: When set to false, it hides the actual R code from the rendered final PDF/HTML document, but still runs it and shows the output (the plot). When set to true, the code is visible. warning: When set to false, it suppresses warning messages from appearing in the rendered document (such as ggplot warning us about removed NA values). eval: When set to false, Quarto will NOT execute the code block at all (no plot will be generated). When set to true, the code runs normally. For this specific chunk, the best settings are usually echo: true, warning: false, and eval: true.</p>
 </section>
 <section id="question-3" class="level2">
 <h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
