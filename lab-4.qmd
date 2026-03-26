@@ -139,6 +139,27 @@ To recreate this plot from raw survey data, the dataset would need to have 1,858
 
 c.  Load the data for this survey from `data/survation.csv`. Confirm that the data match the percentages from the visualization. That is, calculate the percentages of public sector, private sector, don't know for each of the services and check that they match the percentages from the plot.
 
+```{r}
+#| label: survation-check
+#| message: false
+
+survation <- read_csv("survation.csv")
+
+survation_summary <- survation |>
+  pivot_longer(
+    cols = -ID,              # Pivot everything EXCEPT the ID column
+    names_to = "service", 
+    values_to = "response"
+  ) |>
+  count(service, response) |>
+  group_by(service) |>
+  mutate(percent = round(n / sum(n) * 100)) |>
+  ungroup()
+
+# Print the summary to confirm the percentages match the original image
+survation_summary
+```
+Looking at the output of this table, we can confirm that the calculated percentages perfectly match the original chart (e.g., Rail is 94% Public sector, 3% Private, 3% Don't know).
 ## Question 5
 
 Create an improved version of the visualization. Your improved visualization:
@@ -151,7 +172,45 @@ Create an improved version of the visualization. Your improved visualization:
 
 -   does not need to have a bolded title or a gray background
 
+
+```{r}
+#| label: improved-visualization
+#| fig-width: 9
+#| fig-asp: 0.5
+
+survation_summary |>
+  # 1. Reorder the factors so they plot in the correct order
+  mutate(
+    # Order for Y-axis (bottom to top in ggplot)
+    service = fct_relevel(service, "Royal Mail", "Energy", "Water", "Rail"),
+    # Order for stacking (left to right)
+    response = fct_relevel(response, "Public sector", "Private sector", "Don't know")
+  ) |>
+  # 2. Build the plot
+  ggplot(aes(x = percent, y = service, fill = response)) +
+  geom_col() + 
+  # 3. Add exact colors
+  scale_fill_manual(values = c(
+    "Public sector" = "#006697", 
+    "Private sector" = "#FF3205", 
+    "Don't know" = "gray"
+  )) +
+  # 4. Add labels and caption
+  labs(
+    title = "Q4. Do you think the following services should be run in the private\nsector or the public sector?",
+    caption = "Base: All Respondents Unweighted Total: Total=1858",
+    x = "Percentage (%)",
+    y = NULL,
+    fill = NULL
+  ) +
+  # 5. Apply theme and move legend to the bottom
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
 How does the improved visualization look different than the original? Does it send a different message at a first glance?
+
+The improved visualization looks fundamentally different because all bars now start from a shared 0% baseline on the left, making it a standard stacked bar chart instead of a diverging one. At first glance, it sends a much clearer, more honest message: there is massive, overwhelming support for the public sector across all services. In the original plot, the center-alignment artificially pushed the red "Private sector" bars out into the middle of the graphic, making that tiny 3-7% segment look significantly larger and more prominent than it actually was.
 
 ::: callout-tip
 Use `\n` to add a line break to your title. And note that since the title is very long, it might run off the page in your code. That's ok!
