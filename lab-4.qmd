@@ -50,8 +50,14 @@ a.  Add each of strings below to the code chunk provided in your document, rende
     Try each label option in the code chunk provided in your document. If it gives you an error (document doesn't render), you know it's not a proper chunk label.
     :::
 
+Chunk 1 is invalid because #| with-a-line-break is not a recognized Quarto chunk option.
+Chunk 2 is valid but bad practice because it is excessively long.
+Chunk 3 is invalid because chunk labels cannot contain spaces. To fix it, replace the spaces with dashes or underscores (e.g., label-with-spaces).
+Chunk 4 is valid and follows proper formatting.
+
 b.  Which of the chunk label options above is the best option? Explain your reasoning in 1-2 sentences.
 
+Chunk label 4 (label-with-dashes) is the best option. It is concise, informative, and uses dashes instead of spaces, which follows standard tidyverse/R coding best practices for naming conventions.
 ## Question 2
 
 You have the following code chunk:
