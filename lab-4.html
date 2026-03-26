@@ -372,10 +372,51 @@ Tip
 <p>There are 13 groups but <code>tibble</code>s only print out 10 rows by default. Add <code>print(n = 13)</code> as the last step of your pipeline to display all rows.</p>
 </div>
 </div>
-</section>
-<section id="question-7" class="level2">
-<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>datasaurus_dozen <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_y =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_x =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_y =</span> <span class="fu">sd</span>(y),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">cor_xy =</span> <span class="fu">cor</span>(x, y)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">13</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 6
+   dataset    mean_x mean_y  sd_x  sd_y  cor_xy
+   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+ 1 away         54.3   47.8  16.8  26.9 -0.0641
+ 2 bullseye     54.3   47.8  16.8  26.9 -0.0686
+ 3 circle       54.3   47.8  16.8  26.9 -0.0683
+ 4 dino         54.3   47.8  16.8  26.9 -0.0645
+ 5 dots         54.3   47.8  16.8  26.9 -0.0603
+ 6 h_lines      54.3   47.8  16.8  26.9 -0.0617
+ 7 high_lines   54.3   47.8  16.8  26.9 -0.0685
+ 8 slant_down   54.3   47.8  16.8  26.9 -0.0690
+ 9 slant_up     54.3   47.8  16.8  26.9 -0.0686
+10 star         54.3   47.8  16.8  26.9 -0.0630
+11 v_lines      54.3   47.8  16.8  26.9 -0.0694
+12 wide_lines   54.3   47.8  16.8  26.9 -0.0666
+13 x_shape      54.3   47.8  16.8  26.9 -0.0656</code></pre>
+</div>
+</div>
+<p>When looking at the summary statistics, they are virtually identical across all 13 groups. Every dataset has a mean x of ~54.26, a mean y of ~47.8, matching standard deviations, and a similiar correlation coefficient of roughly -0.06. Based solely on these numbers, one would assume these 13 datasets look exactly the same. ## Question 7</p>
 <p>Create a scatterplot of <code>y</code> versus <code>x</code> and color and facet it by <code>dataset</code>. Then, in 1-2 sentences, how these plots compare across groups (datasets). How does your response in this question compare to your response to the previous question and what does this say about using visualizations and summary statistics when getting to know a dataset?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus_dozen, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> dataset)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>dataset) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab-4_files/figure-html/datasaurus-plot-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -389,9 +430,8 @@ Tip
 <p>When you both color and facet by the same variable, you’ll end up with a redundant legend. Turn off the legend by adding <code>show.legend = FALSE</code> to the geom creating the legend.</p>
 </div>
 </div>
-<div class="render-commit-push">
-<p>Render, commit, and push one last time. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.</p>
-</div>
+<p>Despite having the exact same summary statistics in the previous question, these plots look drastically different, ranging from a dinosaur, to a star, to a bullseye, to random horizontal lines. This comparison highlights summary statistics alone can be highly misleading. We must always visualize our data to truly understand the underlying distributions and relationships before drawing conclusions. ::: render-commit-push Render, commit, and push one last time. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.</p>
+<p>:::</p>
 </section>
 <section id="grading" class="level2">
 <h2 class="anchored" data-anchor-id="grading">Grading</h2>
